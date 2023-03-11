@@ -1,0 +1,38 @@
+.body-wrapper{
+    background-color: rgba(194, 194, 194, 0.5);
+}
+#container{
+    width: 100%;
+    height: auto;
+    background-color: rgb(161, 161, 161);
+    margin: 20px 20px;
+    display: flex;
+    justify-content: center;
+}
+.container{
+    width: 80%;
+    margin: 20px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.box{
+    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 10px 0px rgb(235, 235, 235);
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+    flex-basis: 255px;
+    min-height: 450px;
+
+}
+/*add responsive media qauries*/
+@media screen and(max-width: 1200px) {
+    .box{
+        width: 100%;
+    }
+}
+
