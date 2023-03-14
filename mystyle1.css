@@ -4,7 +4,7 @@
 }
 #top-menu{
     height: 50px;
-    background-color: rgb(53, 138, 248);
+    background-color: #db004dde;
     text-align: center;
     justify-content: center;
 }
@@ -16,14 +16,14 @@ ul{
 }
 ul>li{
     padding: 5px 8px;
-    border-right: 1px solid white;
+    border-right: 1px solid #45f3ff;
 }
 ul>li:last-child{
     border-right: none;
 }
 a{
     text-decoration: none;
-    color: rgb(6, 21, 31);
+    color: #45f3ff;
     padding: 10px;
 }
     
@@ -33,12 +33,11 @@ a:hover{
 
 }
 #banner{
-    background-color: rgb(26, 75, 59);
     width: 100%;
     height: 250px;
 }
 #banner{
-    background-image: url(jan.jpg.crdownload);
+    background-image: url(jan.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -48,19 +47,19 @@ a:hover{
     text-align: right;
     right: 23%;
     top: 120px;
-    color: rgb(0, 0, 0);
+    color: #ff3c7b;
 }
     h1{
         margin-top: 50px;
         font-size: 50px;
-        text-shadow: 2px 3px 4px rgb(0, 204, 255);
+        text-shadow: 2px 3px 4px #45f3ff
     }
     h1+p{
         font-size: 28px;
-        color: rgb(0, 0, 0);
+        color: #ff3c7b;
     }
 #main-content{
-    background-color: rgb(0, 32, 68);
+    background-color: #2e2b2bc7;
     text-align: left;
     }
 #about-me{
@@ -80,7 +79,7 @@ i{
     margin-left: 10px;
 }
 #contact-me{
-    background-color: rgba(241, 224, 200, 0.493);
+    background-color: #45f3ff;
 }
 #work-experience{
     text-align: left;
@@ -96,27 +95,165 @@ h3{
         height: auto;
     }
     .container{
-        width: 80%;
-        margin: 20px auto;
-       
+        position: relative;
+        display: flex;
+        padding: 80px 40px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 80px;
     }
-    .d-flex{
+    .card{
+        position: relative;
+        width: 350px;
+        height: 180px;
+        background: #fff;
+        transition: 0.5s;
+    }
+    .card:hover{
+        height: 450px;
+    }
+    .card .lines{
+        position: absolute;
+        inset: 0;
+        background: black;
+        overflow: hidden;
+    }
+    .card .lines::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 600px;
+        height: 120px;
+        background: linear-gradient(transparent, #45f3ff,#45f3ff,#45f3ff,transparent);
+        animation: animate 4s linear infinite;
+        animation-play-state: paused;
+    }
+    .card:hover .lines::before{
+        animation-play-state: running;
+    }
+    @keyframes animate{
+        0%{
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100%{
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+    .card .lines::after{
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #292929;
+        }
+    .card .imgbox{
+        position: absolute;
+        top: -60px;
+        left: 50%;
+        width: 150px;
+        height: 150px;
+        transform: translateX(-50%);
+        background: #000;
+        transition: 0.5s;
+        z-index: 10;
+        overflow: hidden;
         display: flex;
         justify-content: center;
-        gap: 20px;
-        flex-direction: row;
-        flex-wrap: wrap;
+        align-items: center;
     }
-    .box{
-        background-color: rgba(139, 241, 245, 0.774);
-        box-shadow: 5px 10px 0px rgba(255, 128, 223, 0.747);
-        border: 1px solid rgb(224, 156, 238);
-        border-radius: 5px;
+    .card:hover .imgbox{
+        top: 25px;
+        width: 180px;
+        height: 180px;
+    }
+    .card .imgbox::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 500px;
+        height: 150px;
+        transform: translate(-50%, -50%);
+        background: linear-gradient(transparent, #ff3c7b,#ff3c7b,#ff3c7b,transparent);
+        animation: animate2 6s linear infinite;
+        animation-play-state: paused;
+    }
+    .card:hover .imgbox::before{
+        animation-play-state: running;
+    }
+    @keyframes animate2{
+        0%{
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+        100%{
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+    }
+    .card .imgbox::after{
+        content: '';
+        position: absolute;
+        inset: 3px;
+        background: #292929;
+    }
+    .card .imgbox img{
+        position: absolute;
+        width: 100px;
+        z-index: 1;
+        filter: invert(1);
+        opacity: 0.5s;
+        transition: 0.5s;
+    }
+    .card:hover .imgbox img{
+        opacity: 1;
+    }
+    .card .content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .card .content .details{
+        padding: 30px 20px;
         text-align: center;
-        padding: 20px;
-        flex-basis: 255px;
-        min-height: 450px;
-    
+        width: 100%;
+        transition: 0.5s;
+        transform: translateY(145px);
+    }
+    .card:hover .content .details{
+        transform: translateY(0px);
+    }
+    .card .content .details h2{
+        font-size: 1.5em;
+        font-weight: 500;
+        color: #45f3ff;
+        line-height: 1.2em;
+    }
+    .card .content .details p{
+        color: #fff;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .card:hover .content .details p{
+        opacity: 1;
+    }
+    .card .content .details a{
+        display: inline-block;
+        padding: 8px 15px;
+        background: #45f3ff;
+        color: #292929;
+        margin-top: 10px;
+        font-weight: 500;
+        text-decoration: none;
+        opacity: 0;
+        transition: 0.5s;
+    }
+    .card:hover .content .details p,
+    .card:hover .content .details a{
+        opacity: 1;
     }
     /*add responsive media qauries*/
     @media screen and(max-width: 1200px) {
@@ -125,5 +262,5 @@ h3{
         }
     }
 #footer{
-    background-color: rgba(121, 90, 150, 0.788);
+    background-color: #ff3c7b;
 }
