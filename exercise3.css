@@ -23,13 +23,14 @@ ul>li:last-child{
 }
 a{
     text-decoration: none;
-    color: #45f3ff;
+    color: #e2c166;
     padding: 10px;
 }
     
 a:hover{
-    background-color: rgb(25, 177, 177);
+    background-color: rgb(219, 51, 169);
     color: black;
+    transition: 1s;
 
 }
 #banner{
@@ -55,7 +56,7 @@ a:hover{
         text-shadow: 2px 3px 4px #45f3ff
     }
     h1+p{
-        font-size: 28px;
+        font-size: 50x;
         color: #ff3c7b;
     }
 #main-content{
